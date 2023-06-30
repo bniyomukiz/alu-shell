@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
-# Manage my process
+#scripts to start. delete and restart
 
 PID_FILE="/var/run/my_process.pid"
-SCRIPT="./manage_my_process"
 
 start() {
     if [ -f "$PID_FILE" ]; then
-        echo "manage_my_process is already running."
+        echo "manage_my_process is already started."
     else
-        $SCRIPT &
+        ./manage_my_process &
         echo $! > "$PID_FILE"
         echo "manage_my_process started."
     fi
@@ -41,7 +40,7 @@ case "$1" in
         restart
         ;;
     *)
-        echo "Usage: $0 {start|stop|restart}"
+        echo "Usage: manage_my_process {start|stop|restart}"
         ;;
 esac
 
