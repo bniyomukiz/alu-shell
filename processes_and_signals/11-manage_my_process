@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#scripts to start. delete and restart
+# Write Bash (init) script 11-manage_my_process that manages manage_my_process
 
 PID_FILE="/var/run/my_process.pid"
 
@@ -15,7 +15,7 @@ start() {
 
 stop() {
     if [ -f "$PID_FILE" ]; then
-        kill $(cat "$PID_FILE")
+        kill "$(cat "$PID_FILE")"
         rm "$PID_FILE"
         echo "manage_my_process stopped."
     else
