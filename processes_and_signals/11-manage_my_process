@@ -7,14 +7,14 @@ start() {
     if [ -f "$PID_FILE" ]; then
         echo "manage_my_process is already started."
     else
-        ./manage_my_process &
+        nohup ./manage_my_process  >/dev/null 2>&1 &
         echo $! > "$PID_FILE"
         echo "manage_my_process started."
     fi
 }
 
 stop() {
-    if [ -f "$PID_FILE" ]; then
+    if [ -f i"$PID_FILE" ]; then
         kill "$(cat "$PID_FILE")"
         rm "$PID_FILE"
         echo "manage_my_process stopped."
