@@ -7,7 +7,7 @@ start() {
     if [ -f "$PID_FILE" ]; then
         echo "manage_my_process is already started."
     else
-        nohup ./manage_my_process  >/dev/null 2>&1 &
+        ./manage_my_process &
         echo $! > "$PID_FILE"
         echo "manage_my_process started."
     fi
